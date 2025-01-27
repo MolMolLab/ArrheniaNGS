@@ -1,0 +1,16 @@
+name: illumina_meta_pipeline
+channels:
+  - https://packages.qiime2.org/qiime2/2024.10/amplicon/released/
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - qiime2=2024.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - fastq
+  - cutadapt
+  - bioconda
+  - pip
