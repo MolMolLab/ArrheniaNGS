@@ -2,7 +2,7 @@
 
 ## Getting started
 
-This pipeline is based on the open-source code [QIIME 2](https://qiime2.org/) for amplicon-based metabarcoding. We tested the pipeline using ITS2 amplicons [(Filippova, Nina et al., 2024)](https://bdj.pensoft.net/article/119851/)
+This pipeline is based on the open-source code [QIIME 2](https://qiime2.org/) for amplicon-based metabarcoding. We tested the pipeline using ITS2 amplicons [(Filippova et al., 2024)](https://bdj.pensoft.net/article/119851/)
 
 ## Installation
 ### Dependencies
