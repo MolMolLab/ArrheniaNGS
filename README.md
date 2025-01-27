@@ -8,13 +8,13 @@ This pipeline is based on the open-source code [QIIME 2](https://qiime2.org/) fo
 ### Dependencies
 - Linux
 - [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
-- QIIME 2
 ------------
 
 To install the pipeline, run the following commands:
 ```bash
 git clone https://github.com/MolMolLab/IlluminaMetaPipeline.git
 cd IlluminaMetaPipeline
+conda env create -f environment.yml
 ```
 
 ## Usage
