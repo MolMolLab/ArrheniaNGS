@@ -4,7 +4,7 @@ if __name__ == "__main__":
     folder_path = "/..." # Рабочая директория
     sequences_folder_path = "/..." # Директория с сиквенсами
     resources_folder_path = "/..." # Директория с классификатором, референсной базой и списком адаптеров
-    adapter_file='illumina adapters.json' # Список адаптеров
+    adapter_file='.json' # Список адаптеров в формате json
     classifier_file='...qza' # Классификатор
     reference_sequences_file="...fasta" # Референсная база
     threads = 8 # Количество потоков
