@@ -24,6 +24,7 @@ In `main.py`, specify the location of the sequences, reference sequences in FAST
 After setting up, run:
 
 ```bash
+conda activate illumina_meta_pipeline
 python main.py
 ```
 
