@@ -42,11 +42,11 @@ python main.py
 
 ## Контакты
 
-Mail ...
+Mail: sibmyco@gmail.com
 
 ## Цитирование
 
-Если вы используете наш пайплайн в научной публикации, мы будем признательны за ссылки: ...
+Ишманов Т., Звягина Е., Рудыкина Е., Филиппов И., Бульонкова Т., Добрынина А., Филиппова Н. ArrheniaNGS. https://github.com/MolMolLab/ArrheniaNGS
 
 ---------------
 ## Getting started
@@ -80,9 +80,8 @@ The output will include a table, sequences and a taxonomic table for further tax
 
 ## Communication
 
-Mail ...
+Mail: sibmyco@gmail.com
 
 ## Citation
 
-If you use our pipeline in a scientific publication, we would appreciate citations: ...
-
+Ishmanov T., Zvyagina E., Rudykina E., Filippov I., Bulyonkova T., Dobrynina A., Filippova N. ArrheniaNGS. https://github.com/MolMolLab/ArrheniaNGS
