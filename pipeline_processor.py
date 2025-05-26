@@ -99,7 +99,8 @@ class PipelineProcessor:
         clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact = cluster_features_de_novo(
             sequences=d_sequences_artifact, table=d_table_artifact, perc_identity=0.99, threads=self.threads
         )
-        self.cluster_close(clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id)
+        self.remove_chimeras(clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id)
+        #self.cluster_close(clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id)
 
     def cluster_close(self, clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id):
         logging.info(f"Performing closed-reference clustering for {sample_id}")
