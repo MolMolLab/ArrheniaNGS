@@ -63,7 +63,7 @@ To install the pipeline, run the following commands:
 ```bash
 git clone https://github.com/MolMolLab/Arrhenia.git
 cd Arrhenia
-conda env create -f environment.yml
+conda env create -f environment.yml -n Arrhenia
 ```
 
 ## Usage
