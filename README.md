@@ -9,7 +9,7 @@
 * Гибкость: позволяет адаптировать параметры обработки данных в зависимости от качества сырых последовательностей и целей исследования.
 * Автоматизированная обработка: включает ключевые этапы от предобработки данных до таксономической классификации, что минимизирует ручные операции.
 * Использование современных алгоритмов: базируется на инструменте [QIIME 2](https://qiime2.org/) и реализован на Python 3 через интерфейс Artifact API, обеспечивая воспроизводимость и интеграцию с другими аналитическими платформами.
-* Высокая точность идентификации: использует наивный байесовский классификатор, что позволяет достигать высокого уровня достоверности определения таксонов.
+* Высокая точность идентификации: использует наивный байесовский классификатор и blast, что позволяет достигать высокого уровня достоверности определения таксонов.
 
 Пайплайн включает следующие этапы: обрезку адаптеров, объединение парных чтений, фильтрацию, дерепликацию, кластеризацию, удаление химерных последовательностей и таксономическую классификацию.
 
@@ -23,22 +23,22 @@
 
 Для установки пайплайна выполните следующие команды:
 ```bash
-git clone https://github.com/MolMolLab/IlluminaMetaPipeline.git
-cd IlluminaMetaPipeline
-conda env create -f environment.yml
+git clone https://github.com/MolMolLab/Arrhenia.git
+cd Arrhenia
+conda env create -f environment.yml -n Arrhenia
 ```
 
 ## Использование
 
-В `main.py` укажите расположение последовательностей, референсных последовательностей в формате FASTA (например, из базы данных [UNITE](https://unite.ut.ee/repository.php)), адаптеров и предварительно обученного классификатора. См. [classifier training tutorial](https://docs.qiime2.org/2024.10/tutorials/feature-classifier/)
+В `main.py` укажите расположение последовательностей, референсных последовательностей в формате FASTA (например, из базы данных [UNITE](https://unite.ut.ee/repository.php)), адаптеров и предварительно обученного классификатора. См. [classifier training tutorial](https://docs.qiime2.org/2024.10/tutorials/feature-classifier/) ([github](https://github.com/colinbrislawn/unite-train/releases) с обученными классификаторами UNITE).
 
 После настройки запустите:
 ```bash
-conda activate illumina_meta_pipeline
+conda activate Arrhenia
 python main.py
 ```
 
-Результат будет включать таблицу, последовательности и таксономическую таблицу для дальнейшего таксономического анализа.
+Результат будет включать таблицу, последовательности, классификацию blast и sklearn в формате артефактов qiime2 для дальнейшего таксономического анализа.
 
 ## Контакты
 
@@ -61,8 +61,8 @@ This pipeline is based on the open-source code [QIIME 2](https://qiime2.org/) fo
 
 To install the pipeline, run the following commands:
 ```bash
-git clone https://github.com/MolMolLab/IlluminaMetaPipeline.git
-cd IlluminaMetaPipeline
+git clone https://github.com/MolMolLab/Arrhenia.git
+cd Arrhenia
 conda env create -f environment.yml
 ```
 
@@ -72,7 +72,7 @@ In `main.py`, specify the location of the sequences, reference sequences in FAST
 
 After setting up, run:
 ```bash
-conda activate illumina_meta_pipeline
+conda activate Arrhenia
 python main.py
 ```
 
