@@ -11,7 +11,6 @@ from qiime2.plugins.vsearch.methods import merge_pairs
 from qiime2.plugins.quality_filter.methods import q_score
 from qiime2.plugins.vsearch.methods import dereplicate_sequences
 from qiime2.plugins.vsearch.methods import cluster_features_de_novo
-from qiime2.plugins.vsearch.methods import cluster_features_closed_reference
 from qiime2.plugins.vsearch.methods import uchime_ref
 from qiime2.plugins.feature_table.methods import filter_features, filter_seqs
 from qiime2.plugins.feature_classifier.methods import classify_sklearn
@@ -82,16 +81,19 @@ class PipelineProcessor:
     def merge_trimmed_pairs(self, trim_paired_end_artifact, sample_id):
         logging.info(f"Merging pairs for {sample_id}")
         merge_sequences_artifact, _ = merge_pairs(demultiplexed_seqs=trim_paired_end_artifact, minlen=150, maxns=5, maxee=2, threads=self.threads)
+        
         self.filter_by_quality_score(merge_sequences_artifact, sample_id)
 
     def filter_by_quality_score(self, merge_sequences_artifact, sample_id):
         logging.info(f"Filtering sequences for {sample_id}")
         score_sequences_artifact, _ = q_score(demux=merge_sequences_artifact, min_quality=20, max_ambiguous=2)
+        
         self.dereplicate(score_sequences_artifact, sample_id)
 
     def dereplicate(self, score_sequences_artifact, sample_id):
         logging.info(f"Dereplicating sequences for {sample_id}")
         d_table_artifact, d_sequences_artifact = dereplicate_sequences(sequences=score_sequences_artifact)
+        
         self.cluster_de_novo(d_table_artifact, d_sequences_artifact, sample_id)
 
     def cluster_de_novo(self, d_table_artifact, d_sequences_artifact, sample_id):
@@ -100,18 +102,6 @@ class PipelineProcessor:
             sequences=d_sequences_artifact, table=d_table_artifact, perc_identity=0.99, threads=self.threads
         )
         self.remove_chimeras(clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id)
-        #self.cluster_close(clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id)
-
-    def cluster_close(self, clustered_de_novo_table_artifact, clustered_de_novo_sequences_artifact, sample_id):
-        logging.info(f"Performing closed-reference clustering for {sample_id}")
-        clustered_close_table_artifact, clustered_close_sequences_artifact, _ = cluster_features_closed_reference(
-            sequences=clustered_de_novo_sequences_artifact,
-            table=clustered_de_novo_table_artifact,
-            reference_sequences=self.reference_sequences_file,
-            perc_identity=0.99,
-            threads=self.threads
-        )
-        self.remove_chimeras(clustered_close_table_artifact, clustered_close_sequences_artifact, sample_id)
 
     def remove_chimeras(self, clustered_close_table_artifact, clustered_close_sequences_artifact, sample_id):
         logging.info(f"Removing chimeras for {sample_id}")
