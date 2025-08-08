@@ -23,9 +23,9 @@
 
 Для установки пайплайна выполните следующие команды:
 ```bash
-git clone https://github.com/MolMolLab/Arrhenia.git
-cd Arrhenia
-conda env create -f environment.yml -n Arrhenia
+git clone https://github.com/MolMolLab/ArrheniaNGS.git
+cd ArrheniaNGS
+conda env create -f environment.yml -n ArrheniaNGS
 ```
 
 ## Использование
@@ -34,7 +34,7 @@ conda env create -f environment.yml -n Arrhenia
 
 После настройки запустите:
 ```bash
-conda activate Arrhenia
+conda activate ArrheniaNGS
 python main.py
 ```
 
@@ -61,9 +61,9 @@ This pipeline is based on the open-source code [QIIME 2](https://qiime2.org/) fo
 
 To install the pipeline, run the following commands:
 ```bash
-git clone https://github.com/MolMolLab/Arrhenia.git
-cd Arrhenia
-conda env create -f environment.yml -n Arrhenia
+git clone https://github.com/MolMolLab/ArrheniaNGS.git
+cd ArrheniaNGS
+conda env create -f environment.yml -n ArrheniaNGS
 ```
 
 ## Usage
@@ -72,7 +72,7 @@ In `main.py`, specify the location of the sequences, reference sequences in FAST
 
 After setting up, run:
 ```bash
-conda activate Arrhenia
+conda activate ArrheniaNGS
 python main.py
 ```
 
